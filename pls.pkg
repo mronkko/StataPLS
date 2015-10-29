@@ -1,0 +1,5 @@
+v 3
+d pls
+d Program to calculate composite variables using the partial least squares path modeling (PLS) algorithm
+f pls.ado
+f pls.sthlp
