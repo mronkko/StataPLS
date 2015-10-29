@@ -1,10 +1,9 @@
 {smcl}
 {* *! version 1.0  29oct2015}{...}
-{viewerjumpto "Syntax" "pls##syntax"}{...}
-{viewerjumpto "Description" "pls##description"}{...}
-{viewerjumpto "Options" "pls##options"}{...}
-{viewerjumpto "Remarks" "pls##remarks"}{...}
-{viewerjumpto "Examples" "pls##examples"}{...}
+
+{cmd:help pls}
+{hline}
+
 {title:Title}
 
 {phang}
@@ -23,7 +22,7 @@
 {synoptset 50 tabbed}{...}
 {synopthdr}
 {synoptline}
-{syntab:Main}
+{syntab:Options}
 {synopt:{cmdab:a:djacent(}{varlist:1} [, {varlist:2}, {it:...}, {varlist:N}])}defines which composites are adjacent to each other{p_end}
 {synopt:{opt m:odeB}({varlist})}sets Mode B outer estimation{p_end}
 {synopt:{opt s:cheme(scheme)}}sets innner estimation scheme{p_end}
@@ -42,7 +41,7 @@ modeling (PLS) algorithm.
 {pstd}
 The composites are calculated as weighted combinations of existing variables 
 using the weight algorithm introduced by Wold (see {help pls##wold1982:Wold (1982)}).
-The produces composites are indentical to the composties produced by commercial
+The composites produced by {cmd:pls} are identical to the composites produced by commercial
 PLS software as well as the open source 
 {browse "https://cran.r-project.org/web/packages/matrixpls/index.html":matrixpls}
 R package except for small numerical differences due to different convergence
@@ -51,7 +50,7 @@ criterion.
 {marker options}{...}
 {title:Options}
 
-{dlgtab:Main}
+{dlgtab:Options}
 
 {phang}
 {cmd:adjacent(}{varlist:1} [, {varlist:2}, {it:...}, {varlist:N}]) defines which composites are adjacent to each other during inner
@@ -72,7 +71,14 @@ variable.
 {phang}
 This program is provided for educational purposes. It is difficult to recommend 
 the PLS composites for any serious empirical work
-(see {help pls##rma2015:Ršnkkš, McIntosh, and Antonakis (2015)})
+(see {help pls##rma2015:R{char 154}nkk{char 154}, McIntosh, and Antonakis (2015)})
+
+{phang}
+{cmd:pls} is not an official Stata command. Please cite it as: 
+
+{phang}R{char 154}nkk{char 154}, M. (2015) pls: Stata module to calculate PLS composites
+https://github.com/mronkko/StataPLS
+
 
 {marker examples}{...}
 {title:Example}
@@ -98,10 +104,10 @@ the PLS composites for any serious empirical work
 {marker wold1982}{...}
 {phang}
 Wold, H. (1982). Soft modeling: The basic design and some extensions. 
-In K. G. Jšreskog & S. Wold (Eds.), {it:Systems under indirect observation?: causality, structure, prediction} (pp. 1Ð54). Amsterdam: North-Holland.
+In K. G. J{char 154}reskog & S. Wold (Eds.), {it:Systems under indirect observation?: causality, structure, prediction} (pp. 1-54). Amsterdam: North-Holland.
 
 {marker rma2015}{...}
 {phang}
-Ršnkkš, M., McIntosh, C. N., & Antonakis, J. (2015). On the adoption of partial least squares in psychological research: Caveat emptor. {it:Personality and Individual Differences}, (87), 76Ð84. 
+R{char 154}nkk{char 154}, M., McIntosh, C. N., & Antonakis, J. (2015). On the adoption of partial least squares in psychological research: Caveat emptor. {it:Personality and Individual Differences}, (87), 76-84. 
 {browse "http://doi.org/10.1016/j.paid.2015.07.019":DOI:10.1016/j.paid.2015.07.019}
 {p_end}
