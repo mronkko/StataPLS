@@ -60,11 +60,12 @@ program pls, rclass byable(recall)
 					error 197
 				}
 				confirm new variable `1'
-				else local C`j' `1'
+				local C`j' `1'
 			}
 			else{
-				confirm variable `1'
-				else local i`j' "`i`j'' `1'"
+				foreach var of varlist `1'{
+					local i`j' "`i`j'' `var'"
+				}
 			}
 			
 		}
@@ -101,7 +102,8 @@ program pls, rclass byable(recall)
 	
 	foreach i of numlist 1/`j'{
 		quietly egen `C`i'' = rowtotal(`i`i'') if `touse'
-		quietly center `C`i'', standardize inplace
+		quietly sum `C`i''
+		quietly replace `C`i'' = (`C`i''-r(mean))/r(sd)
 	}
 
 	/* Parse adjacencies */
@@ -163,7 +165,6 @@ program pls, rclass byable(recall)
 	scalar iteration = 0
 
 	while(!converged){
-		
 		// Inner estimation. The three commonly used schemes are
 		// Centroid: The sign of correlations
 		// Factor: The correlations
@@ -190,7 +191,7 @@ program pls, rclass byable(recall)
 			foreach var2 in `c`var''{
 				quietly correlate `var' `var2'  if `touse'
 				matrix define C = r(C)
-				if "`scheme'" == "centroid" quietly replace `t`var'' = `t`var'' + `var2' * C[1,1]/abs(C[1,2])  if `touse'
+				if "`scheme'" == "centroid" quietly replace `t`var'' = `t`var'' + `var2' * C[1,2]/abs(C[1,2])  if `touse'
 				else quietly replace `t`var'' = `t`var'' + `var2' * C[1,2]  if `touse'
 			}
 		}
@@ -230,11 +231,14 @@ program pls, rclass byable(recall)
 		
 		// Standardize the composites
 		
-		quietly center `allcomposites' if `touse', standardize inplace
+		foreach var of varlist `allcomposites'{
+			quietly sum `var'
+			quietly replace `var' = (`var'-r(mean))/r(sd)
+		}
 		
 		// Convergence check:compare new weights (W) with the weights from previous
 		// iteration (Wold).
-		
+
 		if(iteration > 0) scalar converged = mreldif(W, Wold) < 0.00001
 		matrix define Wold = W
 	
