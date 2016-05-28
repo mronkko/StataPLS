@@ -71,12 +71,12 @@ variable.
 {phang}
 This program is provided for educational purposes. It is difficult to recommend 
 the PLS composites for any serious empirical work
-(see {help pls##rma2015:R{char 246}nkk{char 246}, McIntosh, and Antonakis (2015)})
+(see {help pls##rma2015:R{c o:}nkk{c o:}, McIntosh, and Antonakis (2015)})
 
 {phang}
 {cmd:pls} is not an official Stata command. Please cite it as: 
 
-{phang}R{char 246}nkk{char 246}, M. (2016) pls: Stata module to calculate PLS composites
+{phang}R{c o:}nkk{c o:}, M. (2016) pls: Stata module to calculate PLS composites
 https://github.com/mronkko/StataPLS
 
 {marker examples}{...}
@@ -129,7 +129,7 @@ is commonly used to demonstrate PLS. The data are standardized with the user wri
 
 {marker rma2015}{...}
 {phang}
-R{char 246}nkk{char 246}, M., McIntosh, C. N., & Antonakis, J. (2015). On the adoption of partial least squares in psychological research: Caveat emptor. {it:Personality and Individual Differences}, (87), 76-84. 
+R{c o:}nkk{c o:}, M., McIntosh, C. N., & Antonakis, J. (2015). On the adoption of partial least squares in psychological research: Caveat emptor. {it:Personality and Individual Differences}, (87), 76-84. 
 {browse "http://doi.org/10.1016/j.paid.2015.07.019":DOI:10.1016/j.paid.2015.07.019}
 {p_end}
 
@@ -142,4 +142,4 @@ Tenenhaus, M., Esposito Vinzi, V., Chatelin, Y.-M., & Lauro, C. (2005). PLS path
 {marker wold1982}{...}
 {phang}
 Wold, H. (1982). Soft modeling: The basic design and some extensions. 
-In K. G. J{char 246}reskog & S. Wold (Eds.), {it:Systems under indirect observation?: causality, structure, prediction} (pp. 1-54). Amsterdam: North-Holland.
+In K. G. J{c o:}reskog & S. Wold (Eds.), {it:Systems under indirect observation?: causality, structure, prediction} (pp. 1-54). Amsterdam: North-Holland.
